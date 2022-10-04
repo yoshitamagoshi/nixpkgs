@@ -155,7 +155,7 @@ runCommand drvName
     #!${bash}/bin/bash
     export PUB_CACHE=''${PUB_CACHE:-"$HOME/.pub-cache"}
     export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
-    ${fhsEnv}/bin/${drvName}-fhs-env ${flutter}/bin/flutter --no-version-check "$@"
+    ${flutter}/bin/flutter --no-version-check "$@"
   '';
   preferLocalBuild = true;
   allowSubstitutes = false;
