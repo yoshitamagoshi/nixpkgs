@@ -1,0 +1,25 @@
+From 145039bad73efb9922364d06ae66bcc049a694e9 Mon Sep 17 00:00:00 2001
+From: Yashar Rassoulli <yasharrassoulli@gmail.com>
+Date: Mon, 3 Oct 2022 22:13:25 -0400
+Subject: [PATCH] When installing Flutter within NixOS FHS not needed
+
+---
+ pkgs/development/compilers/flutter/flutter.nix | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pkgs/development/compilers/flutter/flutter.nix b/pkgs/development/compilers/flutter/flutter.nix
+index 28a78c3e306..33cac8ff4ea 100644
+--- a/pkgs/development/compilers/flutter/flutter.nix
++++ b/pkgs/development/compilers/flutter/flutter.nix
+@@ -155,7 +155,7 @@ runCommand drvName
+     #!${bash}/bin/bash
+     export PUB_CACHE=''${PUB_CACHE:-"$HOME/.pub-cache"}
+     export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
+-    ${fhsEnv}/bin/${drvName}-fhs-env ${flutter}/bin/flutter --no-version-check "$@"
++    ${flutter}/bin/flutter --no-version-check "$@"
+   '';
+   preferLocalBuild = true;
+   allowSubstitutes = false;
+-- 
+2.36.0
+
